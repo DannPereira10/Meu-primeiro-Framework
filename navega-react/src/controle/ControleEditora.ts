@@ -1,21 +1,20 @@
-
-import Editora from '../modelo/Editora';
+import { Editora } from "../modelo/Editora";
 
 const editoras: Array<Editora> = [
-  { codEditora: 1, nome: 'Editora A' },
-  { codEditora: 2, nome: 'Editora B' },
-  { codEditora: 3, nome: 'Editora C' },
+    { codEditora: 1, nome: "Arqueiro" },
+    { codEditora: 2, nome: "Companhia das Letras" },
+    { codEditora: 3, nome: "Darkside" },
 ];
 
-class ControleEditora {
-  getEditoras(): Array<Editora> {
-    return editoras;
-  }
+export class ControleEditora {
+    getEditoras(): Array<Editora> {
+        return editoras;
+    }
 
-  getNomeEditora(codEditora: number): string | undefined {
-    const editora = editoras.filter((editora) => editora.codEditora === codEditora);
-    return editora.length > 0 ? editora[0].nome : undefined;
-  }
+    getNomeEditora(codEditora: number): string {
+        const editora = editoras.filter(e => e.codEditora === codEditora);
+        return editora.length ? editora[0].nome : "Editora não encontrada";
+    }
 }
 
-export default ControleEditora;
+export default ControleEditora
